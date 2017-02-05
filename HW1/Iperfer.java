@@ -72,7 +72,7 @@ public class Iperfer{
 				System.out.println(e.toString());
 				return;
 			}
-			System.out.println("sent="+count+"KB rate="+count/run_time/1000.0+"Mbps");
+			System.out.println("sent="+count+"KB rate="+count/run_time/125.0+"Mbps");
 		}
 		else if(args[0].equals("-s")){
 			if(args.length!=3||!args[1].equals("-p")){
@@ -111,7 +111,7 @@ public class Iperfer{
 				count++;
 			}
 			long t2 = System.nanoTime();
-			System.out.println("received="+count+"KB rate="+count/((t2-t1)/1000000000.0)/1000.0+"Mbps");
+			System.out.println("received="+count+"KB rate="+count/((t2-t1)/1000000000.0)/125+"Mbps");
 		}
 		else{
 			arg_err();
