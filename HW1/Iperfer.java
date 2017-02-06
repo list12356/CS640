@@ -35,12 +35,6 @@ public class Iperfer{
 			PrintWriter out;
 			try{
 				clientSoc=new Socket(host,portNumber);
-			}
-			catch(Exception e){
-				System.out.println(e.toString());
-				return;
-			}
-			try{
 				out = new PrintWriter(clientSoc.getOutputStream(),true);
 			}
 			catch(Exception e){
@@ -50,8 +44,8 @@ public class Iperfer{
 			
 			int count = 0;
 			
-			Byte[] data = new Byte[1000];
-			for(int i=0;i<1000;i++){
+			char[] data = new char[500];
+			for(int i=0;i<500;i++){
 				data[i] = 0;
 			}
 			
@@ -73,6 +67,7 @@ public class Iperfer{
 				return;
 			}
 			System.out.println("sent="+count+"KB rate="+count/run_time/125.0+"Mbps");
+
 		}
 		else if(args[0].equals("-s")){
 			if(args.length!=3||!args[1].equals("-p")){
@@ -86,17 +81,12 @@ public class Iperfer{
 				return;
 			}
 			ServerSocket serverSoc;
-			try{
-				serverSoc=new ServerSocket(serverPort);
-			}catch(Exception e){
-				System.out.println(e.toString());
-				return;
-			}
-
 			Socket clientSoc;
 			try{
+				serverSoc=new ServerSocket(serverPort);			
 				clientSoc=serverSoc.accept();
-			}catch(Exception e){
+			}
+			catch(Exception e){
 				System.out.println(e.toString());
 				return;
 			}
