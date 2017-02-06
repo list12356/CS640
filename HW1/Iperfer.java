@@ -32,7 +32,7 @@ public class Iperfer{
 			
 			int run_time=Integer.parseInt(args[6]);
 			Socket clientSoc;
-			OutputStram out;
+			OutputStream out;
 			try{
 				clientSoc=new Socket(host,portNumber);
 				out = clientSoc.getOutputStream();
@@ -44,8 +44,8 @@ public class Iperfer{
 			
 			int count = 0;
 			
-			char[] data = new char[500];
-			for(int i=0;i<500;i++){
+		        byte[] data = new byte[1000];
+			for(int i=0;i<1000;i++){
 				data[i] = 0;
 			}
 			
