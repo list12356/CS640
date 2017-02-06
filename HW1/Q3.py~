@@ -66,6 +66,8 @@ if __name__ == '__main__':
     h8 = net.getNodeByName("h8")
     h9 = net.getNodeByName("h9")
     h10 = net.getNodeByName("h10")
+    if os.path.isdir('Q3')==False:
+	os.mkdir('Q3')
     f1=open('Q3/result_Q3_h1h4h7h9.txt','w')
     f2=open('Q3/result_Q3_h1h9h8h10.txt','w')
     f3=open('Q3/result_Q3_h7h10h8h9.txt','w')
