@@ -32,10 +32,10 @@ public class Iperfer{
 			
 			int run_time=Integer.parseInt(args[6]);
 			Socket clientSoc;
-			PrintWriter out;
+			OutputStram out;
 			try{
 				clientSoc=new Socket(host,portNumber);
-				out = new PrintWriter(clientSoc.getOutputStream(),true);
+				out = clientSoc.getOutputStream();
 			}
 			catch(Exception e){
 				System.out.println(e.toString());
@@ -56,7 +56,8 @@ public class Iperfer{
 				if((t2-t1)/1000000000.0>run_time){
 					break;
 				}
-				out.println(data);
+				out.write(data);
+				out.flush();
 				count=count+1;
 			}
 			try{
