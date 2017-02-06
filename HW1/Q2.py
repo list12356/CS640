@@ -70,7 +70,9 @@ if __name__ == '__main__':
     h1.sendCmd("java Iperfer -s -p 8000")
     result2=h4.cmd("java Iperfer -c -h 10.0.0.1 -p 8000 -t 20")
     result1=h1.waitOutput()
-    f=open("/Q2/throughput_Q2.txt")
+    if os.path.isdir('Q2')==False:
+	os.mkdir('Q2')
+    f=open("Q2/throughput_Q2.txt")
     f.write(result0)
     f.write(result1)
     f.write(result2)
