@@ -8,6 +8,7 @@ from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.topo import Topo
 from mininet.log import setLogLevel
+import os
 
 class AssignmentNetworks(Topo):
     def __init__(self, **opts):

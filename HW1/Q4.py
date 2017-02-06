@@ -8,6 +8,7 @@ from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.topo import Topo
 from mininet.log import setLogLevel
+import os
 
 class AssignmentNetworks(Topo):
     def __init__(self, **opts):
@@ -80,11 +81,5 @@ if __name__ == '__main__':
     result2=h6.waitOutput()
     f3.write(result1)
     f4.write(result2)
-    h1.sendCmd("ping 10.0.0.4 -c 20")
-    h5.sendCmd("ping 10.0.0.6 -c 20")
-    result1=h1.waitOutput()
-    result2=h5.waitOutput()
-    f1.write(result1)
-    f2.write(result2)
      #CLI( net )
     net.stop()
