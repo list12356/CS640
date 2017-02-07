@@ -94,12 +94,12 @@ public class Iperfer{
 			
 			PrintWriter out=new PrintWriter(clientSoc.getOutputStream(),true);
 			
-			BufferedReader in=new BufferedReader(new InputStreamReader(clientSoc.getInputStream()));
-			String text;
+			InputStream in=clientSoc.getInputStream();
+			byte[] text=new byte[1000];
 			int count=0;
 			long t1 = System.nanoTime();
-			while((text=in.readLine())!=null){
-				count++;
+			while((in.read(text,0,1000))!=0){
+				count=count+1;
 			}
 			long t2 = System.nanoTime();
 			System.out.println("received="+count+"KB rate="+count/((t2-t1)/1000000000.0)/125+"Mbps");

@@ -8,6 +8,7 @@ from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.topo import Topo
 from mininet.log import setLogLevel
+import os
 
 class AssignmentNetworks(Topo):
     def __init__(self, **opts):
@@ -73,31 +74,21 @@ if __name__ == '__main__':
     f3=open('Q1/throughput_L3.txt','w')
     f4=open('Q1/throughput_L4.txt','w')
     f5=open('Q1/throughput_L5.txt','w')
-    h1.sendCmd("java Iperfer -s -p 8000")
+    h1.cmd("java Iperfer -s -p 8000&")
     result11=h2.cmd("java Iperfer -c -h 10.0.0.1 -p 8000 -t 20")
-    result10=h1.waitOutput()
     f1.write(result11)
-    f1.write(result10)
-    h3.sendCmd("java Iperfer -s -p 8000")
+    h3.sendCmd("java Iperfer -s -p 8000&")
     result21=h4.cmd("java Iperfer -c -h 10.0.0.3 -p 8000 -t 20")
-    result20=h3.waitOutput()
     f2.write(result21)
-    f2.write(result20)
-    h2.sendCmd("java Iperfer -s -p 8000")
+    h2.sendCmd("java Iperfer -s -p 8000&")
     result31=h3.cmd("java Iperfer -c -h 10.0.0.2 -p 8000 -t 20")
-    result30=h2.waitOutput()
     f3.write(result31)
-    f3.write(result30)
-    h2.sendCmd("java Iperfer -s -p 8000")
-    result41=h5.cmd("java Iperfer -c -h 10.0.0.2 -p 8000 -t 20 > throughput_L4.txt")
-    result40=h2.waitOutput()
+    h2.sendCmd("java Iperfer -s -p 8000&")
+    result41=h5.cmd("java Iperfer -c -h 10.0.0.2 -p 8000 -t 20")
     f4.write(result41)
-    f4.write(result40)
-    h3.sendCmd("java Iperfer -s -p 8000")
-    result51=h6.cmd("java Iperfer -c -h 10.0.0.3 -p 8000 -t 20 > throughput_L5.txt")
-    result50=h3.waitOutput()
+    h3.sendCmd("java Iperfer -s -p 8000&")
+    result51=h6.cmd("java Iperfer -c -h 10.0.0.3 -p 8000 -t 20")
     f5.write(result51)
-    f5.write(result50)
     
      #CLI( net )
     net.stop()
