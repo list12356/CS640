@@ -1,3 +1,3 @@
-sent=13110KB rate=5.24Mbps
-sent=32695KB rate=13.072Mbps
-sent=16819KB rate=6.72Mbps
+sent=54427KB rate=7.256Mbps
+sent=49172KB rate=6.552Mbps
+sent=48903KB rate=6.52Mbps

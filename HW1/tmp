@@ -1,2 +1,16 @@
 h4 java Iperfer -c -h 10.0.0.1 -p 8000 -t 20
 h9 java Iperfer -c -h 10.0.0.7 -p 8000 -t 20
+
+
+h4 java Iperfer -c -h 10.0.0.1 -p 8000 -t 20
+h9 java Iperfer -c -h 10.0.0.7 -p 8000 -t 20
+
+
+
+h1 java Iperfer -s -p 8000 &
+h7 java Iperfer -s -p 8000 &
+h8 java Iperfer -s -p 8000 &
+h4 java Iperfer -c -h 10.0.0.1 -p 8000 -t 20
+h9 java Iperfer -c -h 10.0.0.7 -p 8000 -t 20
+h10 java Iperfer -c -h 10.0.0.8 -p 8000 -t 20
+

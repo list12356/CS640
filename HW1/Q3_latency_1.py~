@@ -69,7 +69,9 @@ if __name__ == '__main__':
     h10 = net.getNodeByName("h10")
     if os.path.isdir('Q3')==False:
 	os.mkdir('Q3')
-    f4=open('Q3/ping_2.txt','w')
+    f4-open('Q3/ping_1479.txt','w')
+    f5-open('Q3/ping_19810.txt','w')
+    f6-open('Q3/ping_71089.txt','w')
     h4.sendCmd("ping 10.0.0.1 -c 20")
     h9.sendCmd("ping 10.0.0.7 -c 20")
     result1=h4.waitOutput()
