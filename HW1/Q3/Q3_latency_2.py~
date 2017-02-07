@@ -8,7 +8,6 @@ from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.topo import Topo
 from mininet.log import setLogLevel
-import os
 
 class AssignmentNetworks(Topo):
     def __init__(self, **opts):
@@ -67,15 +66,22 @@ if __name__ == '__main__':
     h8 = net.getNodeByName("h8")
     h9 = net.getNodeByName("h9")
     h10 = net.getNodeByName("h10")
-    if os.path.isdir('Q2')==False:
-	os.mkdir('Q2')
-    result0=h1.cmd("ping 10.0.0.4 -c 20")
-    h1.sendCmd("java Iperfer -s -p 8000")
-    result2=h4.cmd("java Iperfer -c -h 10.0.0.1 -p 8000 -t 20")
-    result1=h1.waitOutput()
-    f=open("Q2/throughput_Q2.txt")
-    f.write(result0)
-    f.write(result1)
-    f.write(result2)
+    if os.path.isdir('Q3')==False:
+	os.mkdir('Q3')
+    f4-open('Q3/ping_1479.txt','w')
+    f5-open('Q3/ping_19810.txt','w')
+    f6-open('Q3/ping_71089.txt','w')
+    h1.sendCmd("ping 10.0.0.8 -c 20")
+    h8.sendCmd("ping 10.0.0.10 -c 20")
+    result1=h4.waitOutput()
+    result2=h9.waitOutput()
+    f5.write(result1)
+    f5.write(result2)
+    h7.sendCmd("ping 10.0.0.10 -c 20")
+    h8.sendCmd("ping 10.0.0.9 -c 20")
+    result1=h4.waitOutput()
+    result2=h9.waitOutput()
+    f6.write(result1)
+    f6.write(result2)
      #CLI( net )
     net.stop()
