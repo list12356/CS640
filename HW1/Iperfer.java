@@ -98,11 +98,18 @@ public class Iperfer{
 			byte[] text=new byte[1000];
 			int count=0;
 			long t1 = System.nanoTime();
-			while((in.read(text,0,1000))!=0){
+			while((in.read(text,0,1000))>=0){
 				count=count+1;
 			}
 			long t2 = System.nanoTime();
 			System.out.println("received="+count+"KB rate="+count/((t2-t1)/1000000000.0)/125+"Mbps");
+			try{
+				clientSoc.close();
+			}
+			catch (Exception e){
+				System.out.println(e.toString());
+				return;
+			}
 		}
 		else{
 			arg_err();

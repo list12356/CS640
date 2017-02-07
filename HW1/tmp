@@ -1,0 +1,2 @@
+h4 java Iperfer -c -h 10.0.0.1 -p 8000 -t 20
+h9 java Iperfer -c -h 10.0.0.7 -p 8000 -t 20

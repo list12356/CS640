@@ -70,7 +70,7 @@ if __name__ == '__main__':
     if os.path.isdir('Q3')==False:
 	os.mkdir('Q3')
     f2=open('Q3/result_Q3_3.txt','w')
-    h1.cmd("java Iperfer -s -p 8000")
+    h1.cmd("java Iperfer -s -p 8000 &")
     h4.sendCmd("java Iperfer -c -h 10.0.0.1 -p 8000 -t 20")
     h9.sendCmd("java Iperfer -c -h 10.0.0.7 -p 8000 -t 20")
     h8.cmd("java Iperfer -s -p 8000 &")

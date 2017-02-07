@@ -32,16 +32,10 @@ public class Iperfer{
 			
 			int run_time=Integer.parseInt(args[6]);
 			Socket clientSoc;
-			PrintWriter out;
+			OutputStream out;
 			try{
 				clientSoc=new Socket(host,portNumber);
-			}
-			catch(Exception e){
-				System.out.println(e.toString());
-				return;
-			}
-			try{
-				out = new PrintWriter(clientSoc.getOutputStream(),true);
+				out = clientSoc.getOutputStream();
 			}
 			catch(Exception e){
 				System.out.println(e.toString());
@@ -50,7 +44,7 @@ public class Iperfer{
 			
 			int count = 0;
 			
-			Byte[] data = new Byte[1000];
+		        byte[] data = new byte[1000];
 			for(int i=0;i<1000;i++){
 				data[i] = 0;
 			}
@@ -62,7 +56,8 @@ public class Iperfer{
 				if((t2-t1)/1000000000.0>run_time){
 					break;
 				}
-				out.println(trans_data);
+				out.write(data);
+				out.flush();
 				count=count+1;
 			}
 			try{
@@ -72,7 +67,8 @@ public class Iperfer{
 				System.out.println(e.toString());
 				return;
 			}
-			System.out.println("sent="+count+"KB rate="+count/run_time/1000.0+"Mbps");
+			System.out.println("sent="+count+"KB rate="+count/run_time/125.0+"Mbps");
+
 		}
 		else if(args[0].equals("-s")){
 			if(args.length!=3||!args[1].equals("-p")){
@@ -86,32 +82,34 @@ public class Iperfer{
 				return;
 			}
 			ServerSocket serverSoc;
-			try{
-				serverSoc=new ServerSocket(serverPort);
-			}catch(Exception e){
-				System.out.println(e.toString());
-				return;
-			}
-
 			Socket clientSoc;
 			try{
+				serverSoc=new ServerSocket(serverPort);			
 				clientSoc=serverSoc.accept();
-			}catch(Exception e){
+			}
+			catch(Exception e){
 				System.out.println(e.toString());
 				return;
 			}
 			
 			PrintWriter out=new PrintWriter(clientSoc.getOutputStream(),true);
 			
-			BufferedReader in=new BufferedReader(new InputStreamReader(clientSoc.getInputStream()));
-			String text;
+			InputStream in=clientSoc.getInputStream();
+			byte[] text=new byte[1000];
 			int count=0;
 			long t1 = System.nanoTime();
-			while((text=in.readLine())!=null){
-				count++;
+			while((in.read(text,0,1000))!=0){
+				count=count+1;
 			}
 			long t2 = System.nanoTime();
-			System.out.println("received="+count+"KB rate="+count/((t2-t1)/1000000000.0)/1000.0+"Mbps");
+			System.out.println("received="+count+"KB rate="+count/((t2-t1)/1000000000.0)/125+"Mbps");
+			try{
+				clientSoc.close();
+			}
+			catch (Exception e){
+				System.out.println(e.toString());
+				return;
+			}
 		}
 		else{
 			arg_err();
