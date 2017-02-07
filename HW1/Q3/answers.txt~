@@ -1,0 +1,31 @@
+prediction:
+for two pairs:
+The latency should be the sum of the L1 and L2 and L3, according to the previous measurement, the delay should be approximately 160ms
+
+The throughput should be the half of the thoughput in Q2, which is approximately the half of 20Mbps, that is approximately 10Mbps
+
+for three pairs:
+the latency should be the same, approximately 160ms.
+
+the throughput should all be one third od 20Mbps, that is approximately 6.67Mbps
+
+Measurement:
+for two pairs:
+the latency between h1h4 and h7h9 is
+rtt min/avg/max/mdev = 160.233/160.799/170.892/1.553 ms
+rtt min/avg/max/mdev = 160.272/160.781/169.382/1.304 ms
+
+the throughput between h1h4 and h7h9 is 
+sent=31585KB rate=12.632Mbps
+sent=24163KB rate=9.664Mbps
+
+for three pairs:
+latency:
+rtt min/avg/max/mdev = 160.235/160.984/169.387/2.081 ms
+rtt min/avg/max/mdev = 160.221/161.184/171.110/2.457 ms
+rtt min/avg/max/mdev = 160.353/161.419/172.581/2.844 ms
+throughput:
+sent=54427KB rate=7.256Mbps
+sent=49172KB rate=6.552Mbps
+sent=48903KB rate=6.52Mbps
+

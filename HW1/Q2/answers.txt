@@ -1,0 +1,4 @@
+prediction:
+The latency should be the sum of the L1 and L2 and L3, according to the previous measurement, the delay should be approximately 160ms
+
+The throughput should be the smallest bandwidth in L1 L2 and L3, that is 20Mbps
