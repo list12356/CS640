@@ -97,7 +97,7 @@ public class Switch extends Device
 			for(int i=0;i<mTable.size();i++){
 				long cur_time=System.currentTimeMillis();
 				if(cur_time-mTable.get(i).last_time>15*1000){
-					mTable.remove(i);
+					mTable.get(i).remove(i);
 					i--;
 				}
 			}		
